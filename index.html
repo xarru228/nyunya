@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#ffd9ed">
+  <title>нюня</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main id="app">
+    <section id="mainMenu" class="screen menu-screen">
+      <img src="images/mainmenu.png" class="menu-background" alt="">
+      <div class="menu-overlay">
+        <button id="startButton" class="image-start" aria-label="Начать игру">
+          <img src="images/startbutton.png" alt="START">
+        </button>
+        <p class="menu-hint">Нажми START, чтобы начать</p>
+      </div>
+    </section>
+
+    <section id="transition" class="screen transition-screen" hidden>
+      <img src="images/startgif.gif" alt="Загрузка игры">
+    </section>
+
+    <section id="game" class="screen game-screen" hidden>
+      <img src="images/roomsunny.png" id="roomBackground" class="room-background" alt="Комната питомца">
+      <div class="room-tint" id="roomTint"></div>
+
+      <header class="top-bar">
+        <div class="time-pill"><span id="weatherIcon">☀️</span> <span id="timeLabel">День</span></div>
+        <div class="age-pill">День <span id="ageLabel">1</span></div>
+        <button id="soundToggle" class="icon-button" aria-label="Включить или выключить звук">🔊</button>
+      </header>
+
+      <div id="eggArea" class="character-area" hidden>
+        <img src="images/egg.png" id="egg" class="egg-image" alt="Яйцо">
+        <img src="images/brokenegg.png" id="brokenEgg" class="egg-image" alt="Разбитое яйцо" hidden>
+        <p id="eggMessage" class="speech-bubble">Кто-то скоро появится...</p>
+      </div>
+
+      <div id="petArea" class="character-area" hidden>
+        <div id="petSpeech" class="speech-bubble">Привет</div>
+        <img src="images/nyunya.png" id="pet" class="pet-image" alt="Твой питомец">
+        <div id="petMood" class="mood-label">✨ Счастливый</div>
+      </div>
+
+      <section id="foodMenu" class="food-menu" hidden aria-label="Выбор еды">
+        <div class="food-menu-header"><strong>Меню</strong><button id="closeFoodMenu" class="food-close" aria-label="Закрыть">×</button></div>
+        <div class="food-grid" id="foodGrid"></div>
+      </section>
+
+      <section id="statusPanel" class="status-panel" hidden aria-label="Состояние питомца">
+        <div class="stat-row">
+          <span>🍓 Сытость</span><div class="meter"><div id="hungerBar" class="meter-fill hunger-fill"></div></div><b id="hungerValue">100%</b>
+        </div>
+        <div class="stat-row">
+          <span>💖 Счастье</span><div class="meter"><div id="happinessBar" class="meter-fill happiness-fill"></div></div><b id="happinessValue">100%</b>
+        </div>
+        <div class="stat-row">
+          <span>⚡ Энергия</span><div class="meter"><div id="energyBar" class="meter-fill energy-fill"></div></div><b id="energyValue">100%</b>
+        </div>
+        <div class="stat-row">
+          <span>🫧 Чистота</span><div class="meter"><div id="cleanlinessBar" class="meter-fill cleanliness-fill"></div></div><b id="cleanlinessValue">100%</b>
+        </div>
+      </section>
+
+      <section id="actionPanel" class="action-panel" hidden aria-label="Уход за питомцем">
+        <button class="action-button" data-action="feed"><span>🍓</span><small>Покормить</small></button>
+        <button class="action-button" data-action="play"><span>🧸</span><small>Играть</small></button>
+        <button class="action-button" data-action="sleep"><span>🌙</span><small>Отдых</small></button>
+        <button class="action-button" data-action="clean"><span>🫧</span><small>Помыть</small></button>
+        <button class="action-button" data-action="pet"><span>💕</span><small>Погладить</small></button>
+      </section>
+
+      <aside id="music-player" class="music-player" aria-label="Музыкальный плеер">
+        <div class="music-info">
+          <span class="music-note">♫</span>
+          <div class="music-text"><span class="music-caption">NOW PLAYING</span><strong id="song-name">Secret potion</strong></div>
+        </div>
+        <div class="music-controls">
+          <button id="prev" class="music-button" aria-label="Предыдущая песня">⏮</button>
+          <button id="play" class="music-button play-button" aria-label="Воспроизвести">▶</button>
+          <button id="next" class="music-button" aria-label="Следующая песня">⏭</button>
+          <button id="mute" class="music-button" aria-label="Выключить звук">🔊</button>
+        </div>
+      </aside>
+
+      <div id="toast" class="toast" role="status" aria-live="polite"></div>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
